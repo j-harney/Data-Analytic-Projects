@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Prediction of Stroke</title>
+</head>
+<body class="background">
+<style>
+		 .title {
+         background-color:black;
+         border: 1px solid black;
+         outline: none;
+         padding: 20px 16px;
+		 width: 80%;
+		 text-align: left;
+         font-size: 30px;
+         color:white;
+         letter-spacing: 0.1em;
+		 margin: 35px 0px;
+         }
+		 .input {
+		display: block;
+         background-color:#333333;
+         border: 1px solid black;
+         outline: none;
+         padding: 16px 12px;
+		 width: 50%;
+		 text-align: left;
+         font-size: 17px;
+         color:white;
+         letter-spacing: 0.1em;
+		 margin: 35px 0px;
+         }
+		 .predict {
+		 display: block;
+         background-color:black;
+         border: 1px solid black;
+         outline: none;
+         cursor: pointer;
+         padding: 18px 14px;
+		 width: 20%;
+		 text-align: center;
+         font-size: 24px;
+         color:white;
+         letter-spacing: 0.1em;
+		 margin: 35px 0px;
+         }
+		 .output {
+		display: block;
+         background-color:black;
+         border: 1px solid black;
+         outline: none;
+         padding: 20px 16px;
+		 width: 40%;
+		 text-align: left;
+         font-size: 27px;
+         color:white;
+         letter-spacing: 0.1em;
+		 margin: 35px 0px;
+         }
+		 .background {
+         min-height: 1200px;
+         overflow: hidden;
+         background-color: #4d4d4d;
+         background-size: cover;
+		 min-width: 1200px;
+         }
+	</style>
+     <h1 class="title">Stroke Prediction</h1>
+     <form action="{{ url_for('predict')}}" method="post">
+         <input class="input" type='text' title="Input an age as an integer (Example: 22)" name="age" placeholder="age" required="required" />
+         <input class="input" type='text' title="Input if the person has hypertension or not (1 for yes, 0 for no)" name="hypertension" placeholder="hypertension" required="required" />
+         <input class="input" type='text' title="Input if the person has heart disease or not (1 for yes, 0 for no)" name="heart_disease" placeholder="heart_disease" required="required" />
+		 <input class="input" type='text' title="Input if the person has ever married or not (1 for yes, 0 for no)" name="ever_married" placeholder="ever_married" required="required" />
+		 <input class="input" type='text' title="Input an average glucose level as a decimal (Somewhere between 0 to 300) (Example: 157.3)" name="avg_glucose_level" placeholder="avg_glucose_level" required="required" />
+		 <input class="input" type='text' title="Input an bmi as a decimal (Somewhere between 0 to 80) (Example: 22.4)" name="bmi" placeholder="bmi" required="required" />
+         <button class="predict" type="submit" class="button"> Predict</button>
+     </form>
+
+     <h2 class="output">The stroke prediction is: {{x}}</h2>
+</body>
+</html>
